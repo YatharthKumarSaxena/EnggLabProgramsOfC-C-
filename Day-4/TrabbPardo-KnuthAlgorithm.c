@@ -3,7 +3,7 @@
 #include "stdio.h"
 #include "math.h"
 double f(double x){
-    return (sqrt(fabs(x)) + 5.0* pow(x,3.0));
+    return (sqrt(fabs(x)) + 5* pow(x,3));
 }
 int main(){
     printf("Program is based on tpk algorithm\n");
