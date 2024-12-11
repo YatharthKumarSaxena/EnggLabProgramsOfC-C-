@@ -34,7 +34,7 @@ template <class Type>
 void DoublyLinkedList<Type>:: insertAfterNthNode(Type val,int LOC){
     if(LOC<0){
         cout<<"Invalid position\n";
-        cout<<"You can enter position from -1 to size of the Doubly Linked List\n";
+        cout<<"You can enter position from 0 to size of the Doubly Linked List\n";
         return;
     }
     else if(LOC==0){
@@ -51,18 +51,21 @@ void DoublyLinkedList<Type>:: insertAfterNthNode(Type val,int LOC){
         }
         if(count == LOC){
             if(temp == NULL){
-                cout<<"Insertion at Tail Successfull";
+                cout<<"Invalid position entered by you as it exceeds size of Doubly Linked List\n";
+                return;
+            }
+            else if(temp->next == NULL){
+                cout<<"Insertion Successfull at Tail\n";
                 insertAtTail(val);
                 return;
             }
             else{
+                cout<<"Insertion Successfull\n";
                 ListNode* help = new ListNode(val);
-                help->next = temp->next;
-                if(temp->next != NULL){
-                    temp->next->prev = help;
-                }
+                temp->next->prev = help;
                 temp->next = help;
                 help->prev = temp;
+                return;
             }
         }
         else{
@@ -75,46 +78,23 @@ void DoublyLinkedList<Type>:: insertAfterNthNode(Type val,int LOC){
 
 template <class Type>
 void DoublyLinkedList<Type>::insertBeforeNthNode(Type val, int LOC) {
-    if(LOC < 1) {
+    if(LOC < 1){  // LOC must be 1 or higher
         cout << "Invalid position\n";
-        cout << "You can enter position from 1 to size of the Doubly Linked List\n";
+        cout << "You can enter position from 1 to the size of the Doubly Linked List + 1\n";
         return;
-    }
-    else if(LOC == 1) { // If we need to insert the node before Head i.e insertion at head
+    } 
+    else if(LOC == 1){  // Insert before the 1st node, i.e., at head
         cout << "Insertion at Head Successful\n";
         insertAtHead(val);
         return;
-    }
+    } 
     else{
-        int count = 2; 
-        ListNode* temp = Head;
-        while(temp && count != LOC){
-            temp = temp->next;
-            count++;
-        }
-        if(count == LOC && temp != NULL){ // Insert before temp node
-            ListNode* help = new ListNode(val);
-            help->next = temp;
-            help->prev = temp->prev;
-            // Update the previous node's next pointer (if it exists)
-            if(temp->prev != NULL){
-                temp->prev->next = help;
-            }
-            // Update temp's prev to point to the new node
-            temp->prev = help;
-            // Edge case: If the new node is inserted at the beginning, update Head
-            if (temp == Head) {
-                Head = help;
-            }
-        }
-        else {
-            cout << "Your LOC exceeds the size of the Doubly Linked list\n";
-            cout << "Hence insertion operation is terminated\n";
-            return;
-        }
+        // Call insertAfterNthNode with (LOC - 1) to insert before the Nth node
+        cout << "Insertion before position " << LOC << " is being handled using insertAfterNthNode\n";
+        insertAfterNthNode(val, LOC - 1);
     }
-    return;
 }
+
 
 
 // Deletion Functions
@@ -135,7 +115,9 @@ Type DoublyLinkedList<Type>::deleteAtHead(){
         Head = Head->next;
         Head->prev = NULL;
     }
-    return temp->val;
+    int value = temp->val;
+    delete temp;
+    return value;
 }
 
 template <class Type>
@@ -154,7 +136,9 @@ Type DoublyLinkedList<Type>::deleteAtTail(){
         Tail = Tail->prev;
         Tail->next = NULL;
     }
-    return Tail->val;
+    int value = temp->val;
+    delete temp;
+    return value;
 }
 
 template <class Type>
@@ -164,7 +148,7 @@ Type DoublyLinkedList<Type>:: deleteNthNode(int LOC){
         return Type();
     }
     else if(LOC<1){
-        cout<<"Inalid Location Entered\n";
+        cout<<"Invalid Location Entered\n";
         return Type();
     }
     else if(LOC == 1){ // Delete First Node
@@ -229,6 +213,7 @@ void DoublyLinkedList<Type>::deleteNodeByValue(Type val){
         }
         temp = temp->next;
     }
+    delete temp;
     cout<<"Deletion unsuccessfull as node with value "<<val<<" does not exist\n";
     return;
 }
@@ -246,6 +231,7 @@ void DoublyLinkedList<Type>::display(){
         cout<<temp->val<<" ";
         temp = temp->next;
     }
+    cout<<endl;
     return;
 }
 
@@ -260,6 +246,7 @@ void DoublyLinkedList<Type>::displayReverse(){
         cout<<temp->val<<" ";
         temp = temp->prev;
     }
+    cout<<endl;
     return;
 }
 
@@ -267,10 +254,9 @@ void DoublyLinkedList<Type>::displayReverse(){
 
 template <class Type>
 int DoublyLinkedList<Type>::size(){
-    int count = 0
+    int count = 0;
     ListNode* temp = Head;
     while(temp!=NULL){
-        cout<<temp->val<<" ";
         temp = temp->next;
         count++;
     }
@@ -283,9 +269,15 @@ bool DoublyLinkedList<Type>:: isEmpty(){
 }
 
 template <class Type>
-void DoublyLinkedList<Type>:: makeListEmpty(){
-    cout<<"Now, your Doubly Linked List is empty\n";
+void DoublyLinkedList<Type>::makeListEmpty(){
+    ListNode<Type>* temp = Head;
+    while(temp != NULL) {
+        ListNode<Type>* next = temp->next;
+        delete temp;
+        temp = next;
+    }
     Head = NULL;
     Tail = NULL;
-    return;
+    cout << "Now, your Doubly Linked List is empty\n";
 }
+
