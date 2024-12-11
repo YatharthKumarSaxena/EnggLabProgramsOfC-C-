@@ -4,7 +4,7 @@
 
 template <class Type>
 void DoublyLinkedList<Type>::insertAtHead(Type val){
-    ListNode<Type>* temp = new ListNode(val);
+    ListNode<Type>* temp = new ListNode<Type>(val);
     if(Head == NULL){ // Checking List Is Empty ?
         Head = temp;
         Tail = temp;
@@ -18,7 +18,7 @@ void DoublyLinkedList<Type>::insertAtHead(Type val){
 
 template <class Type>
 void DoublyLinkedList<Type>::insertAtTail(Type val){
-    ListNode<Type>* temp = new ListNode(val);
+    ListNode<Type>* temp = new ListNode<Type>(val);
     if(Head == NULL){ // Checking List Is Empty ?
         Head = temp;
         Tail = temp;
@@ -44,7 +44,7 @@ void DoublyLinkedList<Type>:: insertAfterNthNode(Type val,int LOC){
     }
     else {
         int count = 1;
-        ListNode* temp = Head;
+        ListNode<Type>* temp = Head;
         while(temp && count != LOC){
             temp = temp->next;
             count++;
@@ -61,7 +61,7 @@ void DoublyLinkedList<Type>:: insertAfterNthNode(Type val,int LOC){
             }
             else{
                 cout<<"Insertion Successfull\n";
-                ListNode* help = new ListNode(val);
+                ListNode<Type>* help = new ListNode<Type>(val);
                 temp->next->prev = help;
                 temp->next = help;
                 help->prev = temp;
@@ -157,7 +157,7 @@ Type DoublyLinkedList<Type>:: deleteNthNode(int LOC){
     }
     else{
         int count = 1;
-        ListNode* temp = Head;
+        ListNode<Type>* temp = Head;
         while(temp && count != LOC){
             temp = temp->next;
             count++;
@@ -226,7 +226,7 @@ void DoublyLinkedList<Type>::display(){
         cout<<"Your List is empty\n";
         return;
     }
-    ListNode* temp = Head;
+    ListNode<Type>* temp = Head;
     while(temp!=NULL){
         cout<<temp->val<<" ";
         temp = temp->next;
@@ -241,7 +241,7 @@ void DoublyLinkedList<Type>::displayReverse(){
         cout<<"Your List is empty\n";
         return;
     }
-    ListNode* temp = Tail;
+    ListNode<Type>* temp = Tail;
     while(temp!=NULL){
         cout<<temp->val<<" ";
         temp = temp->prev;
@@ -255,7 +255,7 @@ void DoublyLinkedList<Type>::displayReverse(){
 template <class Type>
 int DoublyLinkedList<Type>::size(){
     int count = 0;
-    ListNode* temp = Head;
+    ListNode<Type>* temp = Head;
     while(temp!=NULL){
         temp = temp->next;
         count++;
