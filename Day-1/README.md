@@ -1,4 +1,4 @@
-# ⚡ Welcome to the Power Function Implementation Project!  
+# ⚡ Welcome to the Day-1 Folder  
 > **I'm the README.md file of this folder, here to guide you step-by-step!** 🚀  
 
 ---
@@ -14,7 +14,7 @@
 ---
 
 ## 📖 **Introduction**  
-This project implements a program to calculate the power of a number using modular C++ programming techniques. It emphasizes dividing code into separate files to follow the **Single Responsibility Principle** and enhance code readability and maintainability.
+This Folder implements a program to calculate the power of a number using modular C++ programming techniques. It emphasizes dividing code into separate files to follow the **Single Responsibility Principle** and enhance code readability and maintainability.
 
 ---
 
@@ -26,7 +26,7 @@ This project implements a program to calculate the power of a number using modul
 
 ### Breakdown:  
 1. **Folders**  
-   - No folders in this project.  
+   - No sub folders in this folder.  
 
 2. **Class/Code Files**  
    - 📄 `declaration.h` - Contains the declaration of the `power` function.  
@@ -34,7 +34,7 @@ This project implements a program to calculate the power of a number using modul
    - 📄 `main_program.cpp` - Includes `power_function.cpp` and serves as the driver file to execute the program.  
 
 3. **README.md Files**  
-   - 📘 This README.md file provides details about the project.  
+   - 📘 This README.md file provides details about the folder.  
 
 ---
 
