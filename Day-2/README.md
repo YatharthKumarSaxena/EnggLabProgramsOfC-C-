@@ -25,6 +25,7 @@ These programs highlighted the impact of precision in computations and the diffe
 
 ## 📂 **Folder Structure**  
 - **Total Files:** 3  
+- **C++ file:** 2
 - **README.md File:** 1 (This file you're reading now)  
 
 ### Breakdown:  

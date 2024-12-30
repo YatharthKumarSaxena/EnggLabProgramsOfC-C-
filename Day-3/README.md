@@ -22,7 +22,8 @@ This day’s learning was guided by our college professors, who introduced the c
 ---
 
 ## 📂 **Folder Structure**  
-- **Total Files:** 2  
+- **Total Files:** 3
+- **C++ file**: 2 
 - **README.md File:** 1 (This file you're reading now)  
 
 ### Breakdown:  
