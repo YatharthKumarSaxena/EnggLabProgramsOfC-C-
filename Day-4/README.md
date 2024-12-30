@@ -13,7 +13,7 @@
 ---
 
 ## 📖 **Introduction**  
-The Day 4 folder focuses on the **TPK Algorithm**, which encapsulates many essential functionalities found in programming languages. This algorithm showcases how fundamental features of programming languages were initially conceptualized and implemented by pioneers like **Trap** and **Pad**.
+The Day 4 folder focuses on the **TPK Algorithm**, which encapsulates many essential functionalities found in programming languages. This algorithm showcases how fundamental features of programming languages were initially conceptualized and implemented by pioneers like **Donald Knuth ** and **Luis Trabb Pardo**.
 
 The provided programs demonstrate the algorithm in both **C** and **C++**, with tasks assigned by our college professors to understand the core principles of language design and functionality implementation.  
 
